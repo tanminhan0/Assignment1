@@ -4,15 +4,12 @@ public class Passenger {
     private String title, name, id, phone;
     private int age;
 
-
     public Passenger(String title, String name, String id, String phone, int age){
         this.title = title;
         this.name =name;
         this.id = id;
         this.phone = phone;
         this.age = age;
-
-
     }
 
     public String getTitle() {

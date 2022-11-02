@@ -7,14 +7,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PassengerTest {
-     Passenger myPassenger;
+     Passenger myPassenger; //Creating object myPassenger
 
-
+    //Setting up the Passenger with null and set up @BeforeEach
     @BeforeEach
     void setUp() {
         myPassenger = new Passenger(null,null,null,null,0);
     }
 
+    //Testing the Title with success case Mr,Mrs,Ms and the fail scenario
     @Test
     void testTitleMr(){
         myPassenger.setTitle("Mr");
@@ -38,6 +39,7 @@ class PassengerTest {
         assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setTitle("Mas");});
     }
 
+    //Testing the Name for at least min 3 characters and a failure with 2 characters
     @Test
     void testName(){
         myPassenger.setName("Tan");
@@ -49,6 +51,7 @@ class PassengerTest {
         assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setName("Li");});
     }
 
+    //Testing the ID for at least min 10 characters and a failure with less than 10 characters
     @Test
     void testId(){
         myPassenger.setId("0037721199");
@@ -60,6 +63,7 @@ class PassengerTest {
         assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setId("000123");});
     }
 
+    //Testing the phone for at least min 7 characters and a failure with less than 7 characters
     @Test
     void testPhone(){
         myPassenger.setPhone("0833337038");
@@ -71,6 +75,7 @@ class PassengerTest {
         assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setPhone("999");});
     }
 
+    //Testing the age for at least min 16 and a failure with younger than 16 years old
     @Test
     void testAge(){
         myPassenger.setAge(22);
@@ -81,11 +86,6 @@ class PassengerTest {
     void testAgeFail(){
         assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setAge(8);});
     }
-
-//    @Test
-//    void testConstructor(){
-//        assertThrows(IllegalArgumentException.class, () -> {new Passenger("Mr", "James", "0012834901", "0833337039", 8);});
-//    }
 
     @AfterEach
     void tearDown() {
