@@ -16,9 +16,26 @@ class PassengerTest {
     }
 
     @Test
-    void testTitle(){
+    void testTitleMr(){
         myPassenger.setTitle("Mr");
         assertEquals("Mr", myPassenger.getTitle());
+    }
+
+    @Test
+    void testTitleMrs(){
+        myPassenger.setTitle("Mrs");
+        assertEquals("Mrs", myPassenger.getTitle());
+    }
+
+    @Test
+    void testTitleMs(){
+        myPassenger.setTitle("Ms");
+        assertEquals("Ms", myPassenger.getTitle());
+    }
+
+    @Test
+    void testTitleFail(){
+        assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setTitle("Mas");});
     }
 
     @Test
@@ -28,9 +45,19 @@ class PassengerTest {
     }
 
     @Test
+    void testNameFail(){
+        assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setName("Li");});
+    }
+
+    @Test
     void testId(){
         myPassenger.setId("0037721199");
         assertEquals("0037721199", myPassenger.getId());
+    }
+
+    @Test
+    void testIdFail(){
+        assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setId("000123");});
     }
 
     @Test
@@ -40,9 +67,19 @@ class PassengerTest {
     }
 
     @Test
+    void testPhoneFail(){
+        assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setPhone("999");});
+    }
+
+    @Test
     void testAge(){
         myPassenger.setAge(22);
         assertEquals(22, myPassenger.getAge());
+    }
+
+    @Test
+    void testAgeFail(){
+        assertThrows(IllegalArgumentException.class, ()-> {myPassenger.setAge(8);});
     }
 
 //    @Test
