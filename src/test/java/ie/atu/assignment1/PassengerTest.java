@@ -35,8 +35,9 @@ class PassengerTest {
 
     @Test
     void testTitleFail(){
-        assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mass","Tan","0037721199","0841412414",22);
+        Exception exMessage = assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mass","Tan","0037721199","0841412414",22);
         });
+        assertEquals("This is not a valid title", exMessage.getMessage());
     }
 
     //Testing the Name for at least min 3 characters and a failure with 2 characters
@@ -48,8 +49,10 @@ class PassengerTest {
 
     @Test
     void testNameFail(){
-        assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mr","Li","0037721199","0841412414",22);
+        Exception exMessage = assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mr","Li","0037721199","0841412414",22);
             ;});
+        assertEquals("Name must be greater than 3 characters", exMessage.getMessage());
+
     }
 
     //Testing the ID for at least min 10 characters and a failure with less than 10 characters
@@ -61,8 +64,9 @@ class PassengerTest {
 
     @Test
     void testIdFail(){
-        assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mr","Tan","00123","0841412414",22);
+        Exception exMessage = assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mr","Tan","00123","0841412414",22);
         });
+        assertEquals("ID length must be greater than 10 characters", exMessage.getMessage());
     }
 
     //Testing the phone for at least min 7 characters and a failure with less than 7 characters
@@ -74,8 +78,9 @@ class PassengerTest {
 
     @Test
     void testPhoneFail(){
-        assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mr","Tan","0037721199","151515",22);
+        Exception exMessage = assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mr","Tan","0037721199","151515",22);
         });
+        assertEquals("Phone must be greater than 7 numbers", exMessage.getMessage());
     }
 
     //Testing the age for at least min 16 and a failure with younger than 16 years old
@@ -87,8 +92,9 @@ class PassengerTest {
 
     @Test
     void testAgeFail(){
-        assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mr","Tan","0037721199","0841412414",8);
+        Exception exMessage = assertThrows(IllegalArgumentException.class, ()-> {myPassenger = new Passenger("Mr","Tan","0037721199","0841412414",8);
         });
+        assertEquals("Age below 16 is too young to fly", exMessage.getMessage());
     }
 
     @AfterEach
